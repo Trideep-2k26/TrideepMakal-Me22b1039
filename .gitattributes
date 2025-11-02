@@ -1,0 +1,6 @@
+# Normalize line endings
+* text=auto
+
+# Keep environment files on LF to avoid Windows conversion warnings
+*.env text eol=lf
+*.env.example text eol=lf

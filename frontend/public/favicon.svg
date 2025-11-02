@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <rect width="64" height="64" rx="12" fill="#0a0e1a"/>
+  <path d="M16 40 L24 28 L32 35 L40 20 L48 32" stroke="#facc15" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  <circle cx="24" cy="28" r="3" fill="#0ecb81"/>
+  <circle cx="32" cy="35" r="3" fill="#0ecb81"/>
+  <circle cx="40" cy="20" r="3" fill="#f6465d"/>
+  <circle cx="48" cy="32" r="3" fill="#facc15"/>
+  <text x="32" y="56" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#facc15" text-anchor="middle">QA</text>
+</svg>

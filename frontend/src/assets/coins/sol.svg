@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <linearGradient id="solg" x1="12" y1="16" x2="52" y2="48" gradientUnits="userSpaceOnUse">
+    <stop offset="0" stop-color="#00FFA3" />
+    <stop offset="1" stop-color="#DC1FFF" />
+  </linearGradient>
+  <circle cx="32" cy="32" r="30" fill="#1A1F36" />
+  <path fill="url(#solg)" d="M18 39.4a1.4 1.4 0 0 1 1.4-1.4h26.9a1.4 1.4 0 0 1 1 2.4l-4.8 4.8a1.4 1.4 0 0 1-.99.41H19.4a1.4 1.4 0 0 1-.99-2.4l4.79-4.8a1.4 1.4 0 0 1 .99-.41Zm0-7.4a1.4 1.4 0 0 0 1.4 1.4h26.9a1.4 1.4 0 0 0 .99-2.4l-4.8-4.8a1.4 1.4 0 0 0-.99-.41H19.4a1.4 1.4 0 0 0-.99 2.4l4.79 4.8a1.4 1.4 0 0 0 .99.41Zm0-9.8a1.4 1.4 0 0 1 1.4-1.4h26.9a1.4 1.4 0 0 1 1 2.4l-4.8 4.8a1.4 1.4 0 0 1-.99.41H19.4a1.4 1.4 0 0 1-.99-2.4l4.79-4.8a1.4 1.4 0 0 1 .99-.41Z" />
+</svg>
