@@ -55,14 +55,16 @@ class BinanceWebSocketClient:
         """Main loop for WebSocket connection with automatic reconnection."""
         while self.is_running:
             try:
+                log.info(f"Connecting to Binance WebSocket for {self.symbol}...")
                 async with websockets.connect(
                     self.ws_url,
                     ping_interval=20,
                     ping_timeout=10,
                     close_timeout=10,
+                    max_size=10 * 1024 * 1024,  # 10MB max message size
                 ) as websocket:
                     self.websocket = websocket
-                    log.info(f"WebSocket connected: {self.symbol}")
+                    log.info(f"✅ WebSocket connected: {self.symbol}")
                     self.reconnect_delay = 1  # Reset delay on successful connection
                     
                     # Listen for messages
@@ -74,16 +76,22 @@ class BinanceWebSocketClient:
                             data = json.loads(message)
                             await self._handle_message(data)
                         except json.JSONDecodeError as e:
-                            log.error(f"JSON decode error for {self.symbol}: {e}")
+                            log.error(f"JSON decode error for {self.symbol}: {e} - Message: {message[:100]}")
                         except Exception as e:
-                            log.error(f"Error processing message for {self.symbol}: {e}")
+                            log.error(f"Error processing message for {self.symbol}: {type(e).__name__} - {str(e)}")
                             
             except ConnectionClosed as e:
-                log.warning(f"WebSocket connection closed for {self.symbol}: {e}")
+                if self.is_running:
+                    log.warning(f"WebSocket connection closed for {self.symbol}: {e.code} {e.reason}")
             except WebSocketException as e:
-                log.error(f"WebSocket error for {self.symbol}: {e}")
+                if self.is_running:
+                    log.error(f"WebSocket error for {self.symbol}: {type(e).__name__} - {str(e)}")
+            except asyncio.CancelledError:
+                log.info(f"WebSocket task cancelled for {self.symbol}")
+                break
             except Exception as e:
-                log.error(f"Unexpected error in WebSocket for {self.symbol}: {e}")
+                if self.is_running:
+                    log.error(f"Unexpected error in WebSocket for {self.symbol}: {type(e).__name__} - {str(e)}", exc_info=True)
             
             # Reconnection logic with exponential backoff
             if self.is_running:
@@ -264,14 +272,18 @@ class WebSocketManager:
         symbol = normalize_symbol(symbol)
         
         if symbol in self.clients:
-            log.warning(f"Already subscribed to {symbol}")
+            log.warning(f"Already subscribed to {symbol}, reusing existing connection")
             return
         
-        # Create and start new client
-        client = BinanceWebSocketClient(symbol, self.on_tick, self.on_ticker)
-        await client.connect()
-        self.clients[symbol] = client
-        log.info(f"Subscribed to {symbol}")
+        try:
+            # Create and start new client
+            client = BinanceWebSocketClient(symbol, self.on_tick, self.on_ticker)
+            await client.connect()
+            self.clients[symbol] = client
+            log.info(f"✅ Successfully subscribed to {symbol}")
+        except Exception as e:
+            log.error(f"Failed to subscribe to {symbol}: {type(e).__name__} - {str(e)}")
+            raise
     
     async def unsubscribe(self, symbol: str):
         """
@@ -292,9 +304,29 @@ class WebSocketManager:
         log.info(f"Unsubscribed from {symbol}")
     
     async def subscribe_multiple(self, symbols: list[str]):
-        """Subscribe to multiple symbols concurrently."""
-        tasks = [self.subscribe(symbol) for symbol in symbols]
-        await asyncio.gather(*tasks, return_exceptions=True)
+        """Subscribe to multiple symbols with staggered connection timing."""
+        log.info(f"Starting subscription for symbols: {symbols}")
+        
+        success_count = 0
+        failed_symbols = []
+        
+        # Subscribe with small delay between each to avoid connection race conditions
+        for symbol in symbols:
+            try:
+                await self.subscribe(symbol)
+                success_count += 1
+                # Small delay to stagger connections
+                if len(symbols) > 1:
+                    await asyncio.sleep(0.5)
+            except Exception as e:
+                failed_symbols.append(symbol)
+                log.error(f"Failed to subscribe to {symbol}: {type(e).__name__} - {str(e)}")
+        
+        log.info(f"✅ Subscription complete: {success_count}/{len(symbols)} successful")
+        if failed_symbols:
+            log.warning(f"⚠️ Failed symbols: {failed_symbols}")
+        
+        return {"success": success_count, "failed": failed_symbols}
     
     async def unsubscribe_multiple(self, symbols: list[str]):
         """Unsubscribe from multiple symbols concurrently."""
