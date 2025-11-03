@@ -20,7 +20,7 @@
 
 You can watch or download the demo video from the link below:
 
-👉 [View Demo Video on Google Drive](https://drive.google.com/drive/folders/10oxDa8K1aUi7k8SVdgWdsMMTln-QNfy1?usp=sharing)
+👉 [View Demo Video on Google Drive](https://drive.google.com/file/d/1exCS6mzAEGASUlNB9eJm2y9P2lIlDLu-/view?usp=drive_link)
 
 
 
