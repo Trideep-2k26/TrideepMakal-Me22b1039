@@ -16,6 +16,13 @@
 [🚀 Quick Start](#-quick-start) • [📖 Documentation](#-documentation) • [🎯 Features](#-features) • [🏗️ Architecture](#️-architecture)
 
 ---
+### 📱 App Preview
+
+![Screenshot 1](https://trideep-dev.sirv.com/Quant/WhatsApp%20Image%202025-11-03%20at%2013.44.53_9dfc8958.jpg)
+![Screenshot 2](https://trideep-dev.sirv.com/Quant/WhatsApp%20Image%202025-11-03%20at%2013.45.31_80ee95b6.jpg)
+![Screenshot 3](https://trideep-dev.sirv.com/Quant/WhatsApp%20Image%202025-11-03%20at%2013.46.26_5996c33d.jpg)
+
+🌸 **Professional UI**
 
 </div>
 
@@ -70,9 +77,6 @@ Built for traders, researchers, and quant teams performing statistical arbitrage
 
 </td>
 <td>
-![App Preview](https://trideep-dev.sirv.com/Quant/WhatsApp%20Image%202025-11-03%20at%2013.44.53_9dfc8958.jpg)
-https://trideep-dev.sirv.com/Quant/WhatsApp%20Image%202025-11-03%20at%2013.45.31_80ee95b6.jpg
-https://trideep-dev.sirv.com/Quant/WhatsApp%20Image%202025-11-03%20at%2013.46.26_5996c33d.jpg
 
 **🎨 Professional UI**
 - Dark theme optimized for trading
