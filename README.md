@@ -26,7 +26,7 @@
 
 </div>
 
-## 🎭 What Makes This Special?
+##  What Makes This Special?
 
 This isn't just another trading dashboard. It's a **professional-grade quantitative analytics platform** that processes real-time market data with institutional-level sophistication:
 
@@ -40,9 +40,9 @@ Built for traders, researchers, and quant teams performing statistical arbitrage
 
 ---
 
-## 🎯 Features
+##  Features
 
-### 💎 Core Capabilities
+###  Core Capabilities
 
 <table>
 <tr>
@@ -57,7 +57,7 @@ Built for traders, researchers, and quant teams performing statistical arbitrage
 </td>
 <td width="50%">
 
-**🧮 Quantitative Analytics**
+** Quantitative Analytics**
 - Multiple hedge ratio estimators (OLS, Huber, Theil-Sen, Kalman)
 - Cointegration-based spread calculation
 - Z-score mean reversion signals
@@ -69,7 +69,7 @@ Built for traders, researchers, and quant teams performing statistical arbitrage
 <tr>
 <td>
 
-**🚨 Smart Alerting**
+** Smart Alerting**
 - User-defined threshold alerts
 - Real-time WebSocket notifications
 - Multi-condition rule engine
@@ -78,7 +78,7 @@ Built for traders, researchers, and quant teams performing statistical arbitrage
 </td>
 <td>
 
-**🎨 Professional UI**
+** Professional UI**
 - Dark theme optimized for trading
 - Interactive Plotly.js charts
 - Real-time statistics dashboard
@@ -139,7 +139,7 @@ Built for traders, researchers, and quant teams performing statistical arbitrage
 
 ---
 
-## 🚀 Quick Start
+##  Quick Start
 
 ### Prerequisites
 
@@ -149,7 +149,7 @@ Built for traders, researchers, and quant teams performing statistical arbitrage
 ✅ Git
 ```
 
-### ⚡ Lightning-Fast Setup
+###  Lightning-Fast Setup
 
 **1️⃣ Clone & Navigate**
 
@@ -173,7 +173,7 @@ pip install -r requirements.txt
 python app.py
 ```
 
-**🎯 Backend Ready:**
+** Backend Ready:**
 - API: `http://localhost:8000`
 - Interactive Docs: `http://localhost:8000/docs`
 
@@ -239,7 +239,7 @@ npm install && npm run dev  # Using npm
 | `/alerts/active` | GET | Get triggered alerts |
 | `/alerts/{id}` | DELETE | Delete alert |
 
-### 📥 Data Export
+###  Data Export
 
 | Endpoint | Method | Description |
 |----------|--------|-------------|
@@ -250,7 +250,7 @@ npm install && npm run dev  # Using npm
 
 ## 📊 Analytics Deep Dive
 
-### 🎯 Hedge Ratio Estimation
+###  Hedge Ratio Estimation
 
 Calculates optimal hedging ratio between two correlated assets:
 
@@ -316,7 +316,7 @@ Tests for mean-reverting behavior:
 
 ---
 
-## ⚡ Performance Metrics
+##  Performance Metrics
 
 | Metric | Value | Notes |
 |--------|-------|-------|
@@ -362,7 +362,7 @@ VITE_USE_MOCK=false
 
 ---
 
-## 📁 Project Structure
+##  Project Structure
 
 ```
 quant-app/
@@ -489,7 +489,7 @@ npm run build
 
 ---
 
-## 🤝 Contributing
+##  Contributing
 
 Contributions are welcome! Please follow these steps:
 
@@ -507,7 +507,7 @@ This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) 
 
 ---
 
-## 🙏 Acknowledgments
+##  Acknowledgments
 
 - **Binance** for providing robust WebSocket API
 - **FastAPI** community for excellent documentation
@@ -529,7 +529,7 @@ For issues or questions:
 
 <div align="center">
 
-### 🌟 Star this repo if you find it useful!
+###  Star this repo if you find it useful!
 
 **Built with ❤️ and Python for quantitative traders and researchers**
 
